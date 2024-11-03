@@ -37,7 +37,6 @@
             border-radius: 10px;
             text-decoration: none;
             font-size: 18px;
-            margin: 10px;
             transition: background-color 0.3s;
         }
 
@@ -45,26 +44,18 @@
             background-color: #45a049;
         }
 
-        /* Responsive layout for stacking buttons on smaller screens */
+        /* Responsive styles for smaller screens */
         @media (max-width: 600px) {
             .nav-buttons {
                 flex-direction: column;
+                width: 100%;
+                align-items: center;
             }
-        }
 
-        /* Encrypted button text animation */
-        .encrypted {
-            background-color: #333;
-            color: #fff;
-            animation: changeColor 2s infinite alternate;
-        }
-
-        @keyframes changeColor {
-            0% { color: #ff0; }
-            25% { color: #f0f; }
-            50% { color: #0ff; }
-            75% { color: #ff0; }
-            100% { color: #f00; }
+            .nav-buttons a {
+                width: 80%;
+                text-align: center;
+            }
         }
     </style>
 </head>
