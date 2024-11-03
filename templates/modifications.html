@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifications</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+
+    <!-- Include Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Add custom styles inline for now -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: blue;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 50px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Neon Effect for Headers */
+        h1 {
+            color: lightskyblue;
+            text-shadow: 0 0 10px #ff9a9e, 0 0 20px #ff9a9e, 0 0 30px #f09, 0 0 40px #f09, 0 0 70px #f09;
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+            animation: slideIn 1.5s ease-out;
+        }
+
+        label, select, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: black;
+        }
+
+        input, select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            background: #ff5f6d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            color: white;
+            box-shadow: 0px 4px 15px rgba(255, 95, 109, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 25px rgba(255, 95, 109, 1);
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Animation for page elements */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Put Your Car in Our Hands and Let Us CURE It!</h1>
+
+    <div class="form-container">
+        <form method="POST">
+            <label>Enter Square Footage for Wrap:</label>
+            <input type="number" name="sq_ft" step="0.1" required>
+
+            <label>Select Wrap Type:</label>
+            <select name="wrap_type" required>
+                <option value="standard">Standard Vinyl</option>
+                <option value="specialty">Specialty Finishes</option>
+            </select>
+
+            <button type="submit">Calculate Wrap Estimate</button>
+        </form>
+
+        {% if wrap_price %}
+            <p>Estimated Wrap Price: ${{ wrap_price }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <label>Enter Square Footage for PPF:</label>
+            <input type="number" name="ppf_sq_ft" step="0.1" required>
+
+            <button type="submit">Calculate PPF Estimate</button>
+        </form>
+
+        {% if ppf_price %}
+            <p>Estimated PPF Price: ${{ ppf_price }}</p>
+        {% endif %}
+
+        <p>Exhaust/Tuning/Dyno: $800-$3000 (estimated)
+    </div>
+</body>
+</html>
+<div class="return-button">
+    <a href="/" class="button">Return to Home</a>
+</div>

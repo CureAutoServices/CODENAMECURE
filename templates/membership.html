@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <div class="square-image"></div>
+    <h1>Membership Plans</h1>
+    <p>Become a monthly subscriber for unique benefits, behind the scenes content, and become an official VIP</p>
+
+    <form method="POST" action="/membership">
+        <div class="membership-tier">
+            <h2>Silver Membership - $30/month or $300/year</h2>
+            <p>6 detailing sessions per year, 5% discount on modifications, Bonus: Branded T-shirt</p>
+            <button type="button" onclick="selectTier('silver')">Become a Silver Member</button>
+        </div>
+
+        <div class="membership-tier">
+            <h2>Gold Membership - $50/month or $500/year</h2>
+            <p>12 detailing sessions per year, 10% discount on services, Bonus: Hoodie + T-shirt</p>
+            <button type="button" onclick="selectTier('gold')">Become a Gold Member</button>
+        </div>
+
+        <div class="membership-tier">
+            <h2>Platinum Membership - $100/month or $1,000/year</h2>
+            <p>Unlimited detailing, 15% discount on modifications, Bonus: Hoodie, T-shirt, and Cap, VIP Event Invitations.</p>
+            <button type="button" onclick="selectTier('platinum')">Become a Platinum Member</button>
+        </div>
+
+        <div id="calendar-container" style="display: none;">
+            <label for="start-date">Start Date:</label>
+            <input type="date" name="start_date" id="start-date" required>
+
+            <label for="end-date">End Date:</label>
+            <input type="date" name="end_date" id="end-date" required>
+
+            <input type="hidden" name="membership_tier" id="selected-tier">
+            <button type="submit">Continue to Payment</button>
+        </div>
+    </form>
+
+    <p class="fine-print">*Membership cannot be canceled or refunded... choose carefully*</p>
+
+    <script>
+        function selectTier(tier) {
+            document.getElementById('selected-tier').value = tier;
+            document.getElementById('calendar-container').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <script src="/static/app.js"></script>
+</head>
+<body>
+    <h1>Membership Plans</h1>
+
+    <!-- Membership Content Here -->
+
+    <!-- Testimonial Slider -->
+    <div class="testimonial-slider">
+        <div>"Fantastic service, highly recommend!" - John Doe</div>
+        <div>"Loved the detailing work!" - Jane Smith</div>
+        <div>"My car looks brand new!" - Mark Anderson</div>
+    </div>
+
+</body>
+</html>
+<div class="return-button">
+    <a href="/" class="button">Return to Home</a>
+</div>

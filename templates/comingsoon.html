@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - CURE Auto Services</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .countdown {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coming Soon!</h1>
+    <p>We're excited to bring this service to you. Stay tuned!</p>
+    <div class="countdown" id="countdown"></div>
+    <a href="/" class="button">Return to Home</a>
+
+    <script>
+        // Set countdown end date
+        const countdownEndDate = new Date('January 1, 2026 00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownEndDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "We are now live!";
+                // Redirect after countdown ends
+                window.location.href = "/";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
