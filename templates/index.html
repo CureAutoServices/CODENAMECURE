@@ -1,3 +1,4 @@
+<!-- templates/index.html for Flask App -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,79 +26,29 @@
             margin-top: 20px;
         }
 
-        /* Button style */
         .nav-buttons a {
+            background-color: #4CAF50;
+            color: white;
             padding: 15px 30px;
             border-radius: 10px;
             text-decoration: none;
             font-size: 18px;
             margin: 10px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s;
         }
 
-        /* Detailing button specific style */
-        #detailing-btn {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        /* Encrypted button initial style */
-        .encrypted {
-            font-weight: bold;
-        }
-
-        /* Hover effect */
         .nav-buttons a:hover {
-            filter: brightness(1.1);
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div class="square-image"></div>
     <h1>Welcome to CURE Auto Services</h1>
-
     <div class="nav-buttons">
-        <a href="/modifications" class="encrypted" id="modifications-btn">Modifications</a>
-        <a href="/detailing" id="detailing-btn">Detailing</a>
-        <a href="/membership" class="encrypted" id="membership-btn">Membership</a>
+        <a href="/modifications" class="encrypted">Modifications</a>
+        <a href="/detailing">Detailing</a>
+        <a href="/membership" class="encrypted">Membership</a>
     </div>
-
-    <script>
-        const modificationButton = document.getElementById('modifications-btn');
-        const membershipButton = document.getElementById('membership-btn');
-
-        // Function to generate random letters
-        function generateRandomText(length) {
-            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            let result = "";
-            for (let i = 0; i < length; i++) {
-                result += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return result;
-        }
-
-        // Function to generate a random color
-        function generateRandomColor() {
-            const letters = "0123456789ABCDEF";
-            let color = "#";
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        // Function to change text, text color, and background color
-        function scrambleButtonStyle(button) {
-            button.textContent = generateRandomText(8); // Adjust length as desired
-            button.style.color = generateRandomColor(); // Random text color
-            button.style.backgroundColor = generateRandomColor(); // Random background color
-        }
-
-        // Apply style change every 0.5 seconds
-        setInterval(() => {
-            scrambleButtonStyle(modificationButton);
-            scrambleButtonStyle(membershipButton);
-        }, 500);
-    </script>
 </body>
 </html>
