@@ -1,7 +1,6 @@
 <!-- templates/index.html for Flask App -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +20,6 @@
         h1 {
             margin-top: 20px;
             font-size: 48px;
-            position: relative;
         }
 
         .nav-buttons {
@@ -46,25 +44,6 @@
             background-color: #45a049;
         }
 
-        /* Easter egg button */
-        #easter-egg-button {
-            position: absolute;
-            top: -15px;
-            left: 55%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            border: none;
-            background: rgba(255, 0, 0, 0.5);
-            cursor: pointer;
-            border-radius: 50%;
-            transition: background-color 0.3s;
-        }
-
-        #easter-egg-button:hover {
-            background-color: rgba(255, 0, 0, 0.8);
-        }
-
         /* Responsive styles for smaller screens */
         @media (max-width: 600px) {
             .nav-buttons {
@@ -80,18 +59,13 @@
         }
     </style>
 </head>
-
 <body>
     <div class="square-image"></div>
-    <h1>
-        Welcome to CURE Auto Services
-        <button id="easter-egg-button" onclick="location.href='/easter_egg_game'"></button>
-    </h1>
+    <h1>Welcome to CURE Auto Services</h1>
     <div class="nav-buttons">
         <a href="/modifications" class="encrypted">Coming Soon</a>
         <a href="/detailing">Detailing</a>
         <a href="/membership" class="encrypted">Coming Soon</a>
     </div>
 </body>
-
 </html>
