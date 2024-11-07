@@ -49,14 +49,20 @@
         /* Easter egg button */
         #easter-egg-button {
             position: absolute;
-            top: -10px;
+            top: -15px;
             left: 55%;
             transform: translateX(-50%);
-            width: 10px;
-            height: 10px;
+            width: 30px;
+            height: 30px;
             border: none;
-            background: none;
+            background: rgba(255, 0, 0, 0.5);
             cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        #easter-egg-button:hover {
+            background-color: rgba(255, 0, 0, 0.8);
         }
 
         /* Responsive styles for smaller screens */
