@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Coin Collect Game</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        canvas {
+            background-color: lightgray;
+            border: 2px solid black;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Coin Collect Game</h1>
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+    <p>Collect 50 coins to win a discount code for 20% off detailing services!</p>
+
+    <!-- JavaScript for game logic -->
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let car = { x: 280, y: 350, width: 40, height: 40 };
+        let coins = [];
+        let score = 0;
+
+        function drawCar() {
+            ctx.fillStyle = "blue";
+            ctx.fillRect(car.x, car.y, car.width, car.height);
+        }
+
+        function drawCoin(coin) {
+            ctx.beginPath();
+            ctx.arc(coin.x, coin.y, 10, 0, Math.PI * 2);
+            ctx.fillStyle = "gold";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function generateCoins() {
+            for (let i = 0; i < 10; i++) {
+                coins.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height - 100 });
+            }
+        }
+
+        function update() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawCar();
+            coins.forEach(coin => {
+                drawCoin(coin);
+            });
+
+            coins = coins.filter(coin => {
+                if (car.x < coin.x + 10 && car.x + car.width > coin.x &&
+                    car.y < coin.y + 10 && car.y + car.height > coin.y) {
+                    score++;
+                    return false;
+                }
+                return true;
+            });
+
+            if (score >= 50) {
+                alert("Congratulations! You have won a 20% discount! Use code: 2DGAME20");
+                score = 0;
+                coins = [];
+                generateCoins();
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        window.addEventListener("keydown", function (event) {
+            switch (event.key) {
+                case "ArrowLeft":
+                    car.x -= 10;
+                    break;
+                case "ArrowRight":
+                    car.x += 10;
+                    break;
+                case "ArrowUp":
+                    car.y -= 10;
+                    break;
+                case "ArrowDown":
+                    car.y += 10;
+                    break;
+            }
+        });
+
+        generateCoins();
+        update();
+    </script>
+</body>
+</html>

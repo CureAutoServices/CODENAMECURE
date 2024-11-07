@@ -138,3 +138,7 @@ def thank_you():
 # Run the app
 if __name__ == '__main__':
     app.run(debug=True)
+# Game route for Easter egg
+@app.route('/easter_egg_game')
+def easter_egg_game():
+    return render_template('easter_egg_game.html')
