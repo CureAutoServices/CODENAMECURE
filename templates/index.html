@@ -7,14 +7,19 @@
     <title>CODENAME CURE - Home</title>
     <link rel="stylesheet" href="/static/styles.css">
     <style>
-        /* Additional styling for centering content and buttons */
+        /* Gradient background styling */
         body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #a1c4fd 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
         }
 
         h1 {
@@ -40,8 +45,27 @@
             transition: background-color 0.3s;
         }
 
+        .nav-buttons a.encrypted {
+            background-color: #333;
+            color: #fff;
+            font-weight: bold;
+            animation: encryptedEffect 1s infinite;
+        }
+
+        .nav-buttons a.encrypted:hover {
+            background-color: #555;
+        }
+
         .nav-buttons a:hover {
             background-color: #45a049;
+        }
+
+        /* Encrypted button effect */
+        @keyframes encryptedEffect {
+            0%, 100% { color: #ff0; }
+            25% { color: #f0f; }
+            50% { color: #0ff; }
+            75% { color: #ff0; }
         }
 
         /* Responsive styles for smaller screens */
@@ -66,7 +90,8 @@
         <a href="/modifications" class="encrypted">Coming Soon</a>
         <a href="/detailing">Detailing</a>
         <a href="/membership" class="encrypted">Coming Soon</a>
-        <a href="/car_of_the_month">Car of the Month</a> <!-- Added Car of the Month Button -->
+        <a href="/car_of_the_month">Car of the Month</a>
     </div>
 </body>
 </html>
+
