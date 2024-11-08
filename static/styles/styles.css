@@ -1,33 +1,24 @@
-body
-{
-    background-color: chartreuse;/
+body {
+    background-color: chartreuse;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;/
-    }
-   '''css'
-{
+    height: 100vh;
+}
+
+.css {
     background-image: url('images/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     width: 200px;
-    height: 100vh
-
-    }
-    '''
+    height: 100vh;
 }
 
 h1 {
     color: #5;
 }
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #007bff;
-    }
-
+/* Button Styling */
 .membership-buttons button {
     margin: 10px;
     padding: 10px 20px;
@@ -45,6 +36,7 @@ nav a {
     font-size: 0.8em;
     color: gray;
 }
+
 .membership-tier {
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -75,6 +67,7 @@ nav a {
     margin-top: 20px;
     text-align: center;
 }
+
 /* Background gradient for the whole page */
 body {
     background: linear-gradient(135deg, #f06, #4a90e2);
@@ -84,7 +77,7 @@ body {
 
 /* Button styling */
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -98,7 +91,6 @@ button {
     border-radius: 10px;
 }
 
-/* Hover effect for buttons */
 button:hover {
     background-color: white;
     color: black;
@@ -120,7 +112,6 @@ button:hover {
     margin-bottom: 10px;
 }
 
-/* Styling for images */
 .square-image {
     width: 50%;
     height: 400px;
@@ -129,11 +120,11 @@ button:hover {
     background-position: center;
 }
 
-/* Font styling for headings */
 h1, h2, h3, p {
     color: white;
     font-weight: 300;
 }
+
 .return-button {
     margin-top: 20px;
     text-align: center;
@@ -152,34 +143,7 @@ h1, h2, h3, p {
 .return-button .button:hover {
     background-color: #45a049;
 }
-.nav-buttons a.encrypted {
-    background-color: #333;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    font-weight: bold;
-    font-size: 18px;
-}
 
-@keyframes encryptedEffect {
-    0%, 100% { color: #ff0; }
-    25% { color: #f0f; }
-    50% { color: #0ff; }
-    75% { color: #ff0; }
-}
-
-.nav-buttons a.encrypted::before {
-    content: attr(data-encrypted-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: block;
-    text-align: center;
-    color: transparent;
-    animation: encryptedEffect 1s infinite;
-}
 /* Responsive Button Layout */
 .nav-buttons {
     display: flex;
@@ -204,7 +168,7 @@ h1, h2, h3, p {
 
 @media (max-width: 600px) {
     .nav-buttons a {
-        width: 100%; /* Full-width buttons on small screens */
+        width: 100%;
         margin: 10px 0;
         text-align: center;
     }

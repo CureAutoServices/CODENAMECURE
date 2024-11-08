@@ -1,0 +1,24 @@
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.month-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.month-box h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.month-box img {
+    width: 100%;
+    border-radius: 5px;
+}
