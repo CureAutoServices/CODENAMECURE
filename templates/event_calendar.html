@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar - November</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        /* Gradient background styling */
+        body {
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .calendar-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        .month-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .no-updates {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .day-label, .day {
+            padding: 8px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .day-label {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+        }
+
+        .day {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: black;
+            height: 60px;
+        }
+
+        /* Responsive styling for smaller screens */
+        @media (max-width: 600px) {
+            .calendar {
+                gap: 3px;
+            }
+            .day-label, .day {
+                padding: 6px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <h1 class="month-header">November 2024</h1>
+        <p id="no-updates" class="no-updates">No new updates</p>
+        <div class="calendar">
+            <!-- Day Labels -->
+            <div class="day-label">Sun</div>
+            <div class="day-label">Mon</div>
+            <div class="day-label">Tue</div>
+            <div class="day-label">Wed</div>
+            <div class="day-label">Thu</div>
+            <div class="day-label">Fri</div>
+            <div class="day-label">Sat</div>
+
+            <!-- Calendar Days -->
+            <div class="day">1</div>
+            <div class="day">2</div>
+            <div class="day">3</div>
+            <div class="day">4</div>
+            <div class="day">5</div>
+            <div class="day">6</div>
+            <div class="day">7</div>
+            <div class="day">8</div>
+            <div class="day">9</div>
+            <div class="day">10</div>
+            <div class="day">11</div>
+            <div class="day">12</div>
+            <div class="day">13</div>
+            <div class="day">14</div>
+            <div class="day">15</div>
+            <div class="day">16</div>
+            <div class="day">17</div>
+            <div class="day">18</div>
+            <div class="day">19</div>
+            <div class="day">20</div>
+            <div class="day">21</div>
+            <div class="day">22</div>
+            <div class="day">23</div>
+            <div class="day">24</div>
+            <div class="day">25</div>
+            <div class="day">26</div>
+            <div class="day">27</div>
+            <div class="day">28</div>
+            <div class="day">29</div>
+            <div class="day">30</div>
+        </div>
+    </div>
+
+    <script>
+        // Remove "No new updates" message if events are added
+        function addEvent(day, eventDescription) {
+            document.getElementById("no-updates").style.display = "none";
+            const dayElement = document.querySelector(`.day:nth-child(${day + 7})`);
+            dayElement.innerHTML += `<br><span style="color: #ff0;">${eventDescription}</span>`;
+        }
+
+        // Example of adding an event (can be removed or expanded as needed)
+        addEvent(10, "Car Show");
+    </script>
+</body>
+</html>
