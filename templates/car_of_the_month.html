@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car of the Month Calendar</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        /* Gradient background */
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #a1c4fd 100%);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .month-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .month-box h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .month-box img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Responsive grid for smaller screens */
+        @media (max-width: 600px) {
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .return-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .return-button .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .return-button .button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <h1>Car of the Month</h1>
@@ -22,7 +82,6 @@
         {% endfor %}
     </div>
 
-    <!-- Back to Home Button -->
     <div class="return-button">
         <a href="/" class="button">Return to Home</a>
     </div>

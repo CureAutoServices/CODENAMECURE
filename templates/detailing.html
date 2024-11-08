@@ -10,6 +10,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
+        /* Gradient background */
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #a1c4fd 100%);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
         /* Styling for the main pricing box */
         .pricing-box {
             background-color: palegreen;
@@ -17,7 +24,7 @@
             border-radius: 10px;
             margin: 20px 0;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            color: black; /* Set all text inside this box to black */
+            color: black;
         }
 
         /* Styling for the inner box displaying the total estimate */
@@ -32,7 +39,7 @@
         .price {
             font-size: 28px;
             font-weight: bold;
-            color: black; /* Set the price color to black */
+            color: black;
         }
 
         .button {
@@ -44,13 +51,13 @@
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin-top: 10px; /* Add margin to prevent overlap */
         }
 
         .button:hover {
             background-color: #45a049;
         }
 
-        /* Set specific headings to black */
         h1, h2, h3, p {
             color: black;
         }
