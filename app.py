@@ -139,3 +139,6 @@ def easter_egg_game():
 
 if __name__ == '__main__':
     app.run(debug=True)
+@app.route('/events')
+def events():
+    return render_template('event_calendar.html')
