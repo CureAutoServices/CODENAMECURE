@@ -13,6 +13,8 @@
         /* Consistent gradient background */
         body {
             background: linear-gradient(135deg, #f06, #4a90e2);
+            background-size: cover;
+            background-attachment: fixed;
             color: white;
             font-family: 'Roboto', sans-serif;
         }
@@ -51,15 +53,22 @@
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin-top: 20px; /* Added margin for spacing */
+            margin-top: 20px; /* Spacing added for visual separation */
         }
 
         .button:hover {
             background-color: #45a049;
         }
 
+        /* Set specific headings to black */
         h1, h2, h3, p {
             color: black;
+        }
+
+        /* Additional spacing for the return button */
+        .return-button {
+            margin-top: 20px;
+            text-align: center;
         }
     </style>
 </head>
