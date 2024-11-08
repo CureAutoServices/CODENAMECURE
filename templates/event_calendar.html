@@ -90,7 +90,11 @@
             <div class="day-label">Fri</div>
             <div class="day-label">Sat</div>
 
-            <!-- Calendar Days -->
+            <!-- Calendar Days with November 1st starting on a Friday -->
+            <div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
             <div class="day">1</div>
             <div class="day">2</div>
             <div class="day">3</div>
@@ -131,9 +135,6 @@
             const dayElement = document.querySelector(`.day:nth-child(${day + 7})`);
             dayElement.innerHTML += `<br><span style="color: #ff0;">${eventDescription}</span>`;
         }
-
-        // Example of adding an event (can be removed or expanded as needed)
-        addEvent(10, "Car Show");
     </script>
 </body>
 </html>
