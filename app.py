@@ -117,8 +117,10 @@ def thank_you():
 @app.route('/car_of_the_month')
 def car_of_the_month():
     months = [
-        {"name": "January", "image": "january.jpg"},
-        {"name": "February", "image": "february.jpg"},
+        {"name": "November", "image": "january.jpg"},
+        {"name": "December", "image": "february.jpg"},
+        {"name": "January", "image": None},
+        {"name": "February", "image": None},
         {"name": "March", "image": None},
         {"name": "April", "image": None},
         {"name": "May", "image": None},
@@ -126,9 +128,7 @@ def car_of_the_month():
         {"name": "July", "image": None},
         {"name": "August", "image": None},
         {"name": "September", "image": None},
-        {"name": "October", "image": None},
-        {"name": "November", "image": None},
-        {"name": "December", "image": None}
+        {"name": "October", "image": None}
     ]
     return render_template('car_of_the_month.html', months=months)
 
