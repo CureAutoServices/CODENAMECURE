@@ -117,8 +117,8 @@ def thank_you():
 @app.route('/car_of_the_month')
 def car_of_the_month():
     months = [
-        {"name": "November", "image": "january.jpg"},
-        {"name": "December", "image": "february.jpg"},
+        {"name": "November", "image": "November.jpg"},
+        {"name": "December", "image": "december.jpg"},
         {"name": "January", "image": None},
         {"name": "February", "image": None},
         {"name": "March", "image": None},
