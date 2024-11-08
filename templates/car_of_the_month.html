@@ -9,6 +9,7 @@
         /* Consistent gradient background */
         body {
             background: linear-gradient(135deg, #f06, #4a90e2);
+            background-size: cover;
             background-repeat: no-repeat;
             color: black;
             font-family: 'Roboto', sans-serif;
@@ -78,7 +79,7 @@
                 {% if month.image %}
                     <img src="{{ url_for('static', filename='images/car_of_the_month/' + month.image) }}" alt="{{ month.name }} Car of the Month">
                 {% else %}
-                    <p>TBD Vote & submit your car @joshkocherrr on Instagram</p>
+                    <p>TBD Vote & submit your car @cureautoservices on Instagram</p>
                 {% endif %}
             </div>
         {% endfor %}
