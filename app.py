@@ -118,11 +118,11 @@ def thank_you():
 def car_of_the_month():
     months = [
         {"name": "November", "image": "November.jpg"},
-        {"name": "December", "image": "december.jpg"},
-        {"name": "January", "image": None},
-        {"name": "February", "image": None},
-        {"name": "March", "image": None},
-        {"name": "April", "image": None},
+        {"name": "December", "image": "December.jpg"},
+        {"name": "January", "image": "January.jpg"},
+        {"name": "February", "image": "February.jpg"},
+        {"name": "March", "image": "March.jpg"},
+        {"name": "April", "image": "April.jpg"},
         {"name": "May", "image": None},
         {"name": "June", "image": None},
         {"name": "July", "image": None},
