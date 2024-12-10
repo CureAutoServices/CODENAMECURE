@@ -48,17 +48,88 @@
             background-color: #45a049;
         }
 
-        /* Responsive styles for smaller screens */
-        @media (max-width: 600px) {
-            .nav-buttons {
-                flex-direction: column;
-                width: 100%;
-                align-items: center;
-            }
+        /* Inquire Form Specific Styling */
+        .inquire-form {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            align-items: center;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
 
-            .nav-buttons a {
-                width: 80%;
-                text-align: center;
+        .inquire-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .inquire-left input,
+        .inquire-right textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .inquire-right textarea {
+            height: 100%;
+            resize: none;
+        }
+
+        .inquire-right button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .inquire-right button:hover {
+            background: #45a049;
+        }
+
+        .thank-you-message {
+            text-align: center;
+            color: black;
+            font-size: 16px;
+        }
+
+        .thank-you-button {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .thank-you-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 600px) {
+            .inquire-form {
+                grid-template-columns: 1fr;
+                align-items: flex-start;
             }
         }
     </style>
@@ -73,5 +144,50 @@
         <a href="/modifications">Modifications</a>
         <a href="/membership">Membership</a>
     </div>
+
+    <!-- Inquiry Form -->
+    <div class="inquire-form">
+        <form id="inquireForm">
+            <div class="inquire-left">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="inquire-right">
+                <textarea name="message" placeholder="Your message" required></textarea>
+                <button type="submit">Inquire</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("inquireForm").addEventListener("submit", async function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch("/inquire", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    // Display thank-you message within the form
+                    document.querySelector(".inquire-form").innerHTML = `
+                        <div style="text-align: center; width: 100%; height: auto;">
+                            <p class="thank-you-message">Thank you for your inquiry!</p>
+                            <button class="thank-you-button" onclick="location.reload()">Submit Another</button>
+                        </div>
+                    `;
+                } else {
+                    alert("Failed to submit your inquiry. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error submitting the form:", error);
+                alert("An error occurred. Please try again.");
+            }
+        });
+    </script>
 </body>
 </html>
