@@ -88,31 +88,6 @@ def submit_booking():
     send_email("New Detailing Booking", message_content)
     return redirect('/thank_you')
 
-# Inquiry form route
-@app.route('/inquire', methods=['POST'])
-def inquire():
-    name = request.form['name']
-    email = request.form['email']
-    phone = request.form['phone']
-    message = request.form['message']
-
-    email_body = f"""
-    New Inquiry Received:
-    Name: {name}
-    Email: {email}
-    Phone: {phone}
-
-    Message:
-    {message}
-    """
-
-    try:
-        send_email(f"Inquiry from {name}", email_body)
-        return "", 200  # Return a 200 OK response without any redirect
-    except Exception as e:
-        print(f"Error: {e}")
-        return "An error occurred while sending your inquiry. Please try again later.", 500
-
 # Send email function
 def send_email(subject, body):
     sender_email = "cure.auto.services@gmail.com"

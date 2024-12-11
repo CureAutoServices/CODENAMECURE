@@ -48,103 +48,17 @@
             background-color: #45a049;
         }
 
-        /* Inquire Form Specific Styling */
-        .inquire-form {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 600px;
-            background: white;
-            border-radius: 20px 20px 0 0;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            overflow: hidden;
-            z-index: 1000;
-        }
-
-        .inquire-form.minimized {
-            max-height: 40px;
-            padding: 5px;
-        }
-
-        .inquire-header {
-            text-align: center;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .inquire-left,
-        .inquire-right {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            margin: 10px;
-        }
-
-        .inquire-left input,
-        .inquire-right textarea {
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-            width: 100%;
-        }
-
-        .inquire-right button {
-            padding: 10px 20px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-
-        .inquire-right button:hover {
-            background: #45a049;
-        }
-
-        .thank-you-message {
-            text-align: center;
-            color: black;
-            font-size: 16px;
-        }
-
-        .thank-you-button {
-            margin-top: 10px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .thank-you-button:hover {
-            background-color: #45a049;
-        }
-
-        /* Mobile Responsive Design */
+        /* Responsive styles for smaller screens */
         @media (max-width: 600px) {
-            .inquire-form {
-                grid-template-columns: 1fr;
+            .nav-buttons {
                 flex-direction: column;
+                width: 100%;
+                align-items: center;
             }
 
-            .inquire-left,
-            .inquire-right {
-                width: 100%;
+            .nav-buttons a {
+                width: 80%;
+                text-align: center;
             }
         }
     </style>
@@ -159,56 +73,5 @@
         <a href="/modifications">Modifications</a>
         <a href="/membership">Membership</a>
     </div>
-
-    <!-- Inquiry Form -->
-    <div class="inquire-form minimized" id="inquireBox">
-        <div class="inquire-header" onclick="toggleInquiryBox()">
-            Inquiry Form (Tap to Expand)
-        </div>
-        <form id="inquireForm" style="display: none;">
-            <div class="inquire-left">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-            </div>
-            <div class="inquire-right">
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Inquire</button>
-            </div>
-        </form>
-        <div class="thank-you-message" id="thankYouMessage" style="display: none;">
-            Thank you for your inquiry!
-            <button onclick="resetForm()">Submit Another</button>
-        </div>
-    </div>
-
-    <script>
-        function toggleInquiryBox() {
-            const box = document.getElementById("inquireBox");
-            const form = document.getElementById("inquireForm");
-            if (box.classList.contains("minimized")) {
-                box.classList.remove("minimized");
-                form.style.display = "flex";
-            } else {
-                box.classList.add("minimized");
-                form.style.display = "none";
-            }
-        }
-
-        const form = document.getElementById("inquireForm");
-        const thankYouMessage = document.getElementById("thankYouMessage");
-
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            form.style.display = "none";
-            thankYouMessage.style.display = "block";
-        });
-
-        function resetForm() {
-            form.reset();
-            form.style.display = "flex";
-            thankYouMessage.style.display = "none";
-        }
-    </script>
 </body>
 </html>
