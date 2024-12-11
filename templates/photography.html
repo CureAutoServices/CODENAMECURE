@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Services</title>
+    <link rel="stylesheet" href="/static/styles.css">
+
+    <!-- Include jQuery for carousel and dynamic pricing -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        /* Consistent gradient background */
+        body {
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Carousel Styling */
+        .carousel-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel img {
+            width: 100%;
+            display: block;
+        }
+
+        .pricing-box {
+            background-color: grey;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            color: white;
+            max-width: 800px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .return-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .return-button .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .return-button .button:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            color: gold;
+            text-align: center;
+        }
+
+        h2, p {
+            color: gold;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .carousel-controls button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .carousel-controls button:hover {
+            background-color: #45a049;
+        }
+
+        .package-details {
+            margin-top: 10px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .featured-warning {
+            color: red;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .carousel-container {
+                max-width: 100%;
+                margin: 10px auto;
+            }
+
+            .pricing-box {
+                max-width: 90%;
+                margin: 10px auto;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .price {
+                font-size: 20px;
+            }
+
+            .carousel-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .carousel-controls button {
+                margin: 5px 0;
+            }
+
+            label, input, textarea {
+                width: 100%;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .return-button {
+                margin-top: 15px;
+            }
+
+            .return-button .button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .price {
+                font-size: 18px;
+            }
+
+            .button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .carousel-controls button {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Photography Services</h1>
+    <div class="carousel-container">
+        <div class="carousel" id="photoCarousel">
+            <img src="/static/images/photography/11224-01.jpg" alt="11224-01">
+            <img src="/static/images/photography/Alex-1.jpg" alt="Alex-1" style="display: none;">
+            <img src="/static/images/photography/cars-1.jpg" alt="cars-1" style="display: none;">
+            <img src="/static/images/photography/cars-2.jpg" alt="cars-2" style="display: none;">
+            <img src="/static/images/photography/cars-3.jpg" alt="cars-3" style="display: none;">
+            <img src="/static/images/photography/cars-4.jpg" alt="cars-4" style="display: none;">
+            <img src="/static/images/photography/cars-5.jpg" alt="cars-5" style="display: none;">
+            <img src="/static/images/photography/cars-06.jpg" alt="cars-06" style="display: none;">
+            <img src="/static/images/photography/cars-07.jpg" alt="cars-07" style="display: none;">
+            <img src="/static/images/photography/cars-08.jpg" alt="cars-08" style="display: none;">
+            <img src="/static/images/photography/cars-09.jpg" alt="cars-09" style="display: none;">
+            <img src="/static/images/photography/cars-10.jpg" alt="cars-10" style="display: none;">
+            <img src="/static/images/photography/cars-11.jpg" alt="cars-11" style="display: none;">
+            <img src="/static/images/photography/cars-12.jpg" alt="cars-12" style="display: none;">
+            <img src="/static/images/photography/lockscreen-2.jpg" alt="lockscreen-2" style="display: none;">
+        </div>
+        <p style="text-align: center; margin-top: 10px;">
+            <a href="https://www.instagram.com/joshkocherrr" target="_blank" style="color: white; text-decoration: underline;">Photos by @joshkocherrr on Insta</a>
+        </p>
+        <p class="featured-warning">FEATURED AUTOMOBILES NOT BUILT BY CURE</p>
+        <div class="carousel-controls">
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
+        </div>
+    </div>
+
+    <form id="photographyForm" method="POST" action="/submit_photography_booking">
+        <div class="pricing-box">
+            <h2>Select Your Photography Package</h2>
+            <select id="packageType" name="packageType" onchange="updatePackageDetails(); calculatePrice();">
+                <option value="silver">Silver Package - $150</option>
+                <option value="gold">Gold Package - $250</option>
+                <option value="platinum">Platinum Package - $400</option>
+            </select>
+            <div id="packageDetails" class="package-details">
+                10 professionally edited photos<br>
+                30-mile travel radius<br>
+                Social media-optimized versions
+            </div>
+            <h3>Add-On Services</h3>
+            <label><input type="checkbox" id="extraPhotos" name="extraPhotos" onchange="calculatePrice()"> Extra Photos (+$10 per photo)</label><br>
+            <label><input type="checkbox" id="rushDelivery" name="rushDelivery" onchange="calculatePrice()"> Rush Delivery (48 hrs) (+$75)</label>
+            <div class="inner-estimate">
+                <h2>Total Estimate</h2>
+                <p class="price" id="totalPrice">$150</p>
+            </div>
+        </div>
+
+        <div class="pricing-box">
+            <h2>Your Contact Information</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+        </div>
+
+        <button type="submit" class="button">Book Now</button>
+        <div class="return-button">
+            <a href="/" class="button">Return to Home</a>
+        </div>
+    </form>
+
+    <script>
+        let currentPhoto = 0;
+        const photos = document.querySelectorAll("#photoCarousel img");
+
+        document.getElementById("next").addEventListener("click", () => {
+            photos[currentPhoto].style.display = "none";
+            currentPhoto = (currentPhoto + 1) % photos.length;
+            photos[currentPhoto].style.display = "block";
+        });
+
+        document.getElementById("prev").addEventListener("click", () => {
+            photos[currentPhoto].style.display = "none";
+            currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+            photos[currentPhoto].style.display = "block";
+        });
+
+        function updatePackageDetails() {
+            const details = {
+                silver: "10 professionally edited photos<br>30-mile travel radius<br>Social media-optimized versions",
+                gold: "20 professionally edited photos<br>60-mile travel radius<br>Social media-optimized versions<br>Two unique locations",
+                platinum: "35+ professionally edited photos<br>100-mile travel radius<br>Social media-optimized versions<br>Up to three locations<br>Priority editing (deliver within 5 days)"
+            };
+            document.getElementById("packageDetails").innerHTML = details[document.getElementById("packageType").value];
+        }
+
+        function calculatePrice() {
+            const basePrices = { silver: 150, gold: 250, platinum: 400 };
+            let totalPrice = basePrices[document.getElementById("packageType").value];
+            if (document.getElementById("extraPhotos").checked) totalPrice += 10;
+            if (document.getElementById("rushDelivery").checked) totalPrice += 75;
+            document.getElementById("totalPrice").textContent = `$${totalPrice}`;
+        }
+    </script>
+</body>
+</html>

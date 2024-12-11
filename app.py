@@ -88,6 +88,58 @@ def submit_booking():
     send_email("New Detailing Booking", message_content)
     return redirect('/thank_you')
 
+# Photography booking submission route
+@app.route('/submit_photography_booking', methods=['POST'])
+def submit_photography_booking():
+    name = request.form['name']
+    email = request.form['email']
+    phone = request.form['phone']
+    package_type = request.form['packageType']
+    extra_photos = "Yes" if 'extraPhotos' in request.form else "No"
+    rush_delivery = "Yes" if 'rushDelivery' in request.form else "No"
+
+    # Package details
+    package_details = {
+        "silver": "10 professionally edited photos, 30-mile travel radius, Social media-optimized versions",
+        "gold": "20 professionally edited photos, 60-mile travel radius, Social media-optimized versions, Two unique locations",
+        "platinum": "35+ professionally edited photos, 100-mile travel radius, Social media-optimized versions, Up to three locations, Priority editing (deliver within 5 days)"
+    }
+
+    # Package prices
+    package_prices = {"silver": 150, "gold": 250, "platinum": 400}
+    total_price = package_prices[package_type]
+    if extra_photos == "Yes":
+        total_price += 10
+    if rush_delivery == "Yes":
+        total_price += 75
+
+    # Email content
+    email_body = f"""
+    <html>
+        <body>
+            <h2>New Photography Booking</h2>
+            <p><strong>Name:</strong> {name}</p>
+            <p><strong>Email:</strong> {email}</p>
+            <p><strong>Phone:</strong> {phone}</p>
+            <p><strong>Package:</strong> {package_type.capitalize()} - ${package_prices[package_type]}</p>
+            <p><strong>Package Details:</strong> {package_details[package_type]}</p>
+            <p><strong>Add-Ons:</strong></p>
+            <ul>
+                <li>Extra Photos: {extra_photos}</li>
+                <li>Rush Delivery: {rush_delivery}</li>
+            </ul>
+            <h3>Total Price: ${total_price}</h3>
+        </body>
+    </html>
+    """
+
+    try:
+        send_email(f"Photography Booking from {name}", email_body)
+        return redirect('/thank_you')
+    except Exception as e:
+        print(f"Error sending email: {e}")
+        return "An error occurred while processing your booking. Please try again later.", 500
+
 # Send email function
 def send_email(subject, body):
     sender_email = "cure.auto.services@gmail.com"
@@ -112,6 +164,12 @@ def send_email(subject, body):
 @app.route('/thank_you')
 def thank_you():
     return render_template('thank_you.html')
+
+@app.route('/about_us')
+def about_you():
+    return render_template('about_us.html')
+
+# route for about us
 
 # Car of the Month route
 @app.route('/car_of_the_month')
@@ -140,6 +198,10 @@ def easter_egg_game():
 @app.route('/events')
 def events():
     return render_template('event_calendar.html')
+
+@app.route('/photography')
+def photography():
+    return render_template('photography.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
