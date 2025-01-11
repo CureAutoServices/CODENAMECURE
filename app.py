@@ -94,15 +94,16 @@ def submit_photography_booking():
     name = request.form['name']
     email = request.form['email']
     phone = request.form['phone']
+    zip_code = request.form['zip']
     package_type = request.form['packageType']
     extra_photos = "Yes" if 'extraPhotos' in request.form else "No"
     rush_delivery = "Yes" if 'rushDelivery' in request.form else "No"
 
     # Package details
     package_details = {
-        "silver": "10 professionally edited photos, 30-mile travel radius, Social media-optimized versions",
-        "gold": "20 professionally edited photos, 60-mile travel radius, Social media-optimized versions, Two unique locations",
-        "platinum": "35+ professionally edited photos, 100-mile travel radius, Social media-optimized versions, Up to three locations, Priority editing (deliver within 5 days)"
+        "silver": "10 professionally edited photos,  Social media-optimized versions",
+        "gold": "20 professionally edited photos,  Social media-optimized versions, Two unique locations",
+        "platinum": "35+ professionally edited photos,  Social media-optimized versions, Up to three locations, Priority editing (deliver within 5 days)"
     }
 
     # Package prices
@@ -121,6 +122,7 @@ def submit_photography_booking():
             <p><strong>Name:</strong> {name}</p>
             <p><strong>Email:</strong> {email}</p>
             <p><strong>Phone:</strong> {phone}</p>
+            <p><strong>Zip Code:</strong> {zip_code}</p>
             <p><strong>Package:</strong> {package_type.capitalize()} - ${package_prices[package_type]}</p>
             <p><strong>Package Details:</strong> {package_details[package_type]}</p>
             <p><strong>Add-Ons:</strong></p>

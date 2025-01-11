@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography Services</title>
-    <link rel="stylesheet" href="/static/styles.css">
 
-    <!-- Include jQuery for carousel and dynamic pricing -->
+    <!-- Include jQuery for dynamic pricing -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
@@ -19,22 +18,7 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        /* Carousel Styling */
-        .carousel-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .carousel img {
-            width: 100%;
-            display: block;
-        }
-
-        .pricing-box {
+        .pricing-box, .info-box {
             background-color: grey;
             padding: 20px;
             border-radius: 10px;
@@ -42,6 +26,19 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             color: white;
             max-width: 800px;
+        }
+
+        .info-box h2 {
+            color: gold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: white;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
         }
 
         .price {
@@ -96,46 +93,15 @@
             color: gold;
         }
 
-        .carousel-controls {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        .carousel-controls button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .carousel-controls button:hover {
-            background-color: #45a049;
-        }
-
         .package-details {
             margin-top: 10px;
             font-size: 20px;
             color: white;
         }
 
-        .featured-warning {
-            color: red;
-            text-align: center;
-            margin-top: 5px;
-            font-size: 16px;
-        }
-
         /* Media queries for responsive design */
         @media (max-width: 768px) {
-            .carousel-container {
-                max-width: 100%;
-                margin: 10px auto;
-            }
-
-            .pricing-box {
+            .pricing-box, .info-box {
                 max-width: 90%;
                 margin: 10px auto;
                 padding: 15px;
@@ -151,15 +117,6 @@
 
             .price {
                 font-size: 20px;
-            }
-
-            .carousel-controls {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .carousel-controls button {
-                margin: 5px 0;
             }
 
             label, input, textarea {
@@ -191,55 +148,72 @@
                 padding: 8px 16px;
                 font-size: 14px;
             }
-
-            .carousel-controls button {
-                font-size: 14px;
-                padding: 8px;
-            }
         }
     </style>
 </head>
 <body>
     <h1>Photography Services</h1>
-    <div class="carousel-container">
-        <div class="carousel" id="photoCarousel">
-            <img src="/static/images/photography/11224-01.jpg" alt="11224-01">
-            <img src="/static/images/photography/Alex-1.jpg" alt="Alex-1" style="display: none;">
-            <img src="/static/images/photography/cars-1.jpg" alt="cars-1" style="display: none;">
-            <img src="/static/images/photography/cars-2.jpg" alt="cars-2" style="display: none;">
-            <img src="/static/images/photography/cars-3.jpg" alt="cars-3" style="display: none;">
-            <img src="/static/images/photography/cars-4.jpg" alt="cars-4" style="display: none;">
-            <img src="/static/images/photography/cars-5.jpg" alt="cars-5" style="display: none;">
-            <img src="/static/images/photography/cars-06.jpg" alt="cars-06" style="display: none;">
-            <img src="/static/images/photography/cars-07.jpg" alt="cars-07" style="display: none;">
-            <img src="/static/images/photography/cars-08.jpg" alt="cars-08" style="display: none;">
-            <img src="/static/images/photography/cars-09.jpg" alt="cars-09" style="display: none;">
-            <img src="/static/images/photography/cars-10.jpg" alt="cars-10" style="display: none;">
-            <img src="/static/images/photography/cars-11.jpg" alt="cars-11" style="display: none;">
-            <img src="/static/images/photography/cars-12.jpg" alt="cars-12" style="display: none;">
-            <img src="/static/images/photography/lockscreen-2.jpg" alt="lockscreen-2" style="display: none;">
-        </div>
-        <p style="text-align: center; margin-top: 10px;">
-            <a href="https://www.instagram.com/joshkocherrr" target="_blank" style="color: white; text-decoration: underline;">Photos by @joshkocherrr on Insta</a>
-        </p>
-        <p class="featured-warning">FEATURED AUTOMOBILES NOT BUILT BY CURE</p>
-        <div class="carousel-controls">
-            <button id="prev">Previous</button>
-            <button id="next">Next</button>
-        </div>
-    </div>
+
+    <div class="info-box">
+        <h2>What We Do</h2>
+        <p>
+    At Cure, we specialize in delivering top-tier automotive content. Whether you're in the market for Photo or Video...We got you.
+    Our offerings cater to anyone from car enthusiasts, to businesses, and even event organizers, ensuring your needs are met
+    just how you dreamed.
+</p>
+<p>
+    Whether you’re looking for stunning rolling shots, cinematic videos, or professional event coverage,
+    we’ve got you covered. Our photography packages include a range of options from basic high-quality
+    images to comprehensive packages featuring prints, instant film, and social media-ready content.
+    We also offer specialized "Shadow Packages" tailored for track days, races, and events, capturing every
+    moment with precision.From action shots on the track to behind-the-scenes footage and car x driver portraits.
+</p>
+<p>
+    For your business, we provide customized services to showcase your vehicles or events with professional
+    photos, walkthrough videos, promotional content, and anything else you could imagine. Our team ensures your business or event stands
+    out with a polished and professional presentation.
+</p>
+<p>
+    With Cure, every detail matters. From individual photoshoots to full-scale event coverage, we are committed
+    to delivering quality results that exceed expectations in an efficient and professional order.
+</p>
+    <p style="text-align: center; margin-top: 20px;">
+        <span style="color: gold;">See our previous work </span>
+        <a href="https://www.instagram.com/cureautoservices" target="_blank" class="instagram-button">@cureautoservices</a>
+    </p>
+</div>
 
     <form id="photographyForm" method="POST" action="/submit_photography_booking">
         <div class="pricing-box">
             <h2>Select Your Photography Package</h2>
             <select id="packageType" name="packageType" onchange="updatePackageDetails(); calculatePrice();">
-                <option value="silver">Silver Package - $150</option>
-                <option value="gold">Gold Package - $250</option>
-                <option value="platinum">Platinum Package - $400</option>
-            </select>
+    <!-- Standard Photography -->
+    <option value="silver">Silver Package - $150</option>
+    <option value="gold">Gold Package - $250</option>
+    <option value="platinum">Platinum Package - $400</option>
+
+    <!-- Film Photography -->
+    <option value="SilverFilm">Silver Film Package - $225</option>
+    <option value="GoldFilm">Gold Tier Film Package - $300</option>
+    <option value="PlatinumFilm">Platinum Tier Film Package - $400</option>
+
+    <!-- Roller Packages -->
+    <option value="photoRoller">Photo Roller Package - $200</option>
+    <option value="videoRoller">Video Roller Package - $300</option>
+    <option value="eliteRoller">Elite Roller Package - $450</option>
+
+    <!-- Shadow Packages -->
+    <option value="Shadow">Shadow Package - $200</option>
+    <option value="goldShadow">Gold Shadow Package - $400</option>
+    <option value="platinumShadow">Platinum Shadow Package - $650</option>
+
+    <!-- Business Packages -->
+    <option value="businesspackage">Business Package - $500–$1,000</option>
+    <option value="trackeventpackage">Track/Event Package - $1,500–$2,500</option>
+</select>
+
             <div id="packageDetails" class="package-details">
                 10 professionally edited photos<br>
-                30-mile travel radius<br>
                 Social media-optimized versions
             </div>
             <h3>Add-On Services</h3>
@@ -255,50 +229,82 @@
             <h2>Your Contact Information</h2>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
+
             <label for="phone">Phone:</label>
             <input type="tel" id="phone" name="phone" required><br><br>
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required><br><br>
+
+            <label for="zip">Zip Code:</label>
+            <input type="text" id="zip" name="zip" required pattern="\d{5}" title="Please enter a valid 5-digit zip code."><br><br>
         </div>
 
-        <button type="submit" class="button">Book Now</button>
+        <button type="submit" class="button">Inquire!</button>
         <div class="return-button">
             <a href="/" class="button">Return to Home</a>
         </div>
     </form>
 
     <script>
-        let currentPhoto = 0;
-        const photos = document.querySelectorAll("#photoCarousel img");
-
-        document.getElementById("next").addEventListener("click", () => {
-            photos[currentPhoto].style.display = "none";
-            currentPhoto = (currentPhoto + 1) % photos.length;
-            photos[currentPhoto].style.display = "block";
-        });
-
-        document.getElementById("prev").addEventListener("click", () => {
-            photos[currentPhoto].style.display = "none";
-            currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
-            photos[currentPhoto].style.display = "block";
-        });
-
         function updatePackageDetails() {
-            const details = {
-                silver: "10 professionally edited photos<br>30-mile travel radius<br>Social media-optimized versions",
-                gold: "20 professionally edited photos<br>60-mile travel radius<br>Social media-optimized versions<br>Two unique locations",
-                platinum: "35+ professionally edited photos<br>100-mile travel radius<br>Social media-optimized versions<br>Up to three locations<br>Priority editing (deliver within 5 days)"
-            };
-            document.getElementById("packageDetails").innerHTML = details[document.getElementById("packageType").value];
-        }
+    const details = {
+        // Standard Photography
+        silver: "10 professionally edited photos<br>Social media-optimized versions",
+        gold: "20 professionally edited photos<br>Social media-optimized versions<br>Two unique locations",
+        platinum: "35+ professionally edited photos<br>Social media-optimized versions<br>Up to three locations<br>Priority editing (deliver within 5 days)",
+
+        // Film Photography
+        SilverFilm: "Low-resolution social media photos<br>20-mile travel radius<br>$0.75/mile for extra distance",
+        GoldFilm: "High-resolution images<br>5 (4x6) print photos<br>60-mile travel radius<br>$0.75/mile for extra distance",
+        PlatinumFilm: "Low & high-resolution social media photos<br>5 (4x6) print photos<br>10 instant film prints<br>100-mile travel radius<br>$0.75/mile for extra distance<br>No rush delivery or extra edits available",
+
+        // Roller Packages
+        photoRoller: "Dynamic rolling shots of a single car<br>Includes 10+ high-resolution photos<br>Rush delivery and extra edits available",
+        videoRoller: "Cinematic rolling video (60 seconds min)<br>Edited for social media<br>Additional footage or extended edits available<br>Rush delivery and extra edits available",
+        eliteRoller: "Both rolling photos and cinematic videos<br>Discounted rate<br>Extended video length or additional photos optional<br>Rush delivery and extra edits available",
+
+        // Shadow Packages
+        Shadow: "Action shots on the track/event<br>Pit lane and garage photos<br>Rush delivery and extra edits available",
+        goldShadow: "Action shots on the track/event<br>Pit lane and garage photos<br>Staged photos (if permitted)<br>Driver portraits included<br>Rush delivery and extra edits available",
+        platinumShadow: "Action shots on the track/event<br>Pit lane and garage photos<br>Staged photos (if permitted)<br>Driver portraits included<br>Full video coverage<br>Driver mic-up for audio capture<br>Content creation (reels/highlights)<br>Rush delivery and extra edits available",
+
+        // Business Packages
+        businesspackage: "Professional vehicle photos<br>High-res and web-optimized versions<br>Optional video walkthroughs<br>Price varies depending on desired content",
+        trackeventpackage: "Full event coverage: crowd, cars, facilities<br>Highlight reels for promotion<br>Social media-ready posts<br>Price varies depending on desired content"
+    };
+
+    // Get the selected package
+    const selectedPackage = document.getElementById("packageType").value;
+
+    // Update the package details
+    document.getElementById("packageDetails").innerHTML = details[selectedPackage] || "Select a package to see details.";
+}
+
 
         function calculatePrice() {
-            const basePrices = { silver: 150, gold: 250, platinum: 400 };
-            let totalPrice = basePrices[document.getElementById("packageType").value];
-            if (document.getElementById("extraPhotos").checked) totalPrice += 10;
-            if (document.getElementById("rushDelivery").checked) totalPrice += 75;
-            document.getElementById("totalPrice").textContent = `$${totalPrice}`;
-        }
+    const basePrices = {
+        silver: 150, gold: 250, platinum: 400,
+        SilverFilm: 225, GoldFilm: 300, PlatinumFilm: 400,
+        photoRoller: 200, videoRoller: 300, eliteRoller: 450,
+        Shadow: 200, goldShadow: 400, platinumShadow: 650, businesspackage: 500, trackeventpackage: 1500
+    };
+
+    // Get the selected package
+    const selectedPackage = document.getElementById("packageType").value;
+
+    // Calculate the base price
+    let totalPrice = basePrices[selectedPackage] || 0;
+
+    // Add-ons (if applicable)
+    if (document.getElementById("extraPhotos").checked && selectedPackage !== "topFilm") totalPrice += 10;
+    if (document.getElementById("rushDelivery").checked && selectedPackage !== "topFilm") totalPrice += 75;
+
+    // Update the total price
+    document.getElementById("totalPrice").textContent = `$${totalPrice}`;
+}
+
+
     </script>
 </body>
 </html>
