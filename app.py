@@ -107,7 +107,32 @@ def submit_photography_booking():
     }
 
     # Package prices
-    package_prices = {"silver": 150, "gold": 250, "platinum": 400}
+    package_prices = {
+        # Standard Photography
+        "silver": 150,
+        "gold": 250,
+        "platinum": 400,
+
+        # Film Photography
+        "SilverFilm": 225,
+        "GoldFilm": 300,
+        "PlatinumFilm": 400,
+
+        # Roller Packages
+        "photoRoller": 200,
+        "videoRoller": 300,
+        "eliteRoller": 450,
+
+        # Shadow Packages
+        "shadow": 200,
+        "goldShadow": 400,
+        "platinumShadow": 650,
+
+        # Business Packages
+        "businesspackage": 500,
+        "trackeventpackage": 1500
+    }
+
     total_price = package_prices[package_type]
     if extra_photos == "Yes":
         total_price += 10
