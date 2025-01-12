@@ -101,9 +101,29 @@ def submit_photography_booking():
 
     # Package details
     package_details = {
-        "silver": "10 professionally edited photos,  Social media-optimized versions",
-        "gold": "20 professionally edited photos,  Social media-optimized versions, Two unique locations",
-        "platinum": "35+ professionally edited photos,  Social media-optimized versions, Up to three locations, Priority editing (deliver within 5 days)"
+        # Standard Photography
+        "silver": "10 professionally edited photos<br>Social media-optimized versions",
+        "gold": "20 professionally edited photos<br>Social media-optimized versions<br>Two unique locations",
+        "platinum": "35+ professionally edited photos<br>Social media-optimized versions<br>Up to three locations<br>Priority editing (deliver within 5 days)",
+
+        # Film Photography
+        "SilverFilm": "Low-resolution social media photos<br>20-mile travel radius<br>$0.75/mile for extra distance",
+        "GoldFilm": "High-resolution images<br>5 (4x6) print photos<br>60-mile travel radius<br>$0.75/mile for extra distance",
+        "PlatinumFilm": "Low & high-resolution social media photos<br>5 (4x6) print photos<br>10 instant film prints<br>100-mile travel radius<br>$0.75/mile for extra distance<br>No rush delivery or extra edits available",
+
+        # Roller Packages
+        "photoRoller": "Dynamic rolling shots of a single car<br>Includes 10+ high-resolution photos<br>Rush delivery and extra edits available",
+        "videoRoller": "Cinematic rolling video (60 seconds min)<br>Edited for social media<br>Additional footage or extended edits available<br>Rush delivery and extra edits available",
+        "eliteRoller": "Both rolling photos and cinematic videos<br>Discounted rate<br>Extended video length or additional photos optional<br>Rush delivery and extra edits available",
+
+        # Shadow Packages
+        "Shadow": "Action shots of the car on the track or at the event<br>Photos of pit lane and garages<br>3-5 dynamic photos of your car in action<br>Rush delivery and extra edits available",
+        "goldShadow": "Everything in Shadow Package<br>Exclusive staged photos on the track (if permitted)<br>Driver portraits included<br>10+ dynamic action shots<br>Rush delivery and extra edits available",
+        "platinumShadow": "Everything in Gold Shadow Package<br>Full professional video coverage of the car in action<br>Driver mic-up for onboard audio capture<br>Custom highlight reels for social media or promotional use<br>Rush delivery and extra edits available",
+
+        # Business Packages
+        "businesspackage": "Professional vehicle photos<br>High-res and web-optimized versions<br>Optional video walkthroughs<br>Price varies depending on desired content",
+        "trackeventpackage": "Full event coverage: crowd, cars, facilities<br>Highlight reels for promotion<br>Social media-ready posts<br>Price varies depending on desired content"
     }
 
     # Package prices
