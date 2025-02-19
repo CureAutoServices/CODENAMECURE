@@ -3,38 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifications</title>
+    <title>Star Headliner Modifications</title>
     <link rel="stylesheet" type="text/css" href="/static/styles.css">
 
-    <!-- Include Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <!-- Add custom styles inline for now -->
     <style>
+        /* Page styling */
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            color: blue;
             text-align: center;
             margin: 0;
             padding: 0;
         }
 
+        /* Heading styling */
         h1 {
-            font-size: 48px;
+            font-size: 32px;
             font-weight: 700;
-            margin: 50px 0;
+            margin-top: 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            animation: fadeIn 1s ease-out;
-        }
-
-        /* Neon Effect for Headers */
-        h1 {
             color: lightskyblue;
-            text-shadow: 0 0 10px #ff9a9e, 0 0 20px #ff9a9e, 0 0 30px #f09, 0 0 40px #f09, 0 0 70px #f09;
+            text-shadow: 0 0 10px #ff9a9e, 0 0 20px #ff9a9e, 0 0 30px #f09;
         }
 
+        /* Styling for the form container */
         .form-container {
             background: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
@@ -45,21 +38,48 @@
             animation: slideIn 1.5s ease-out;
         }
 
-        label, select, input {
+        /* Label styling */
+        label {
+            display: block;
+            font-size: 18px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        /* Input and select dropdown styling */
+        select, input {
             display: block;
             width: 100%;
-            margin-bottom: 15px;
-            font-size: 18px;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
             color: black;
         }
 
-        input, select {
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            outline: none;
+        /* Styling for add-on options */
+        .addons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
         }
 
+        .addon-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        /* Button styling */
         button {
             background: #ff5f6d;
             border: none;
@@ -77,60 +97,105 @@
             box-shadow: 0px 8px 25px rgba(255, 95, 109, 1);
         }
 
-        p {
+        /* Back to Home button styling */
+        .return-button {
+            margin-top: 30px;
+        }
+
+        .return-button .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
             font-size: 18px;
-            margin: 20px 0;
-            animation: fadeIn 1.5s ease-out;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
-        /* Animation for page elements */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            0% { transform: translateY(100px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
+        .return-button .button:hover {
+            background-color: #45a049;
         }
     </style>
+    <script>
+        /* Function to calculate price based on selections */
+        function calculatePrice() {
+            let basePrices = {150: 100, 300: 150, 450: 200, 600: 250, 750: 325, 900: 400, 1100: 500, 1300: 600, works: 1000};
+            let packageValue = document.getElementById("package").value;
+            let totalPrice = basePrices[packageValue] || 1000;
+
+            let carType = document.getElementById("car_type").value;
+            if (carType === "large") {
+                totalPrice += 100;
+            } else if (carType === "luxury") {
+                totalPrice += 250;
+            }
+
+            document.querySelectorAll(".addons input[type='checkbox']").forEach(checkbox => {
+                if (checkbox.checked) {
+                    totalPrice += parseInt(checkbox.value);
+                }
+            });
+
+            document.getElementById("totalPrice").innerText = `$${totalPrice}`;
+            document.getElementById("hiddenTotalPrice").value = totalPrice;
+
+        }
+    </script>
 </head>
 <body>
-    <h1>Put Your Car in Our Hands and Let Us CURE It!</h1>
+    <h1>Custom Star Headliner Installation</h1>
 
     <div class="form-container">
-        <form method="POST">
-            <label>Enter Square Footage for Wrap:</label>
-            <input type="number" name="sq_ft" step="0.1" required>
-
-            <label>Select Wrap Type:</label>
-            <select name="wrap_type" required>
-                <option value="standard">Standard Vinyl</option>
-                <option value="specialty">Specialty Finishes</option>
+        <form id="headlinerForm" method="POST" action="/submit_modifications">
+            <!-- Car Type Selection -->
+            <label>Select Your Car Type:</label>
+            <select id="car_type" name="car_type" required onchange="calculatePrice()">
+                <option value="2-door">2-Door Coupe</option>
+                <option value="4-door">4-Door Sedan</option>
+                <option value="luxury">Luxury or Exotic</option>
+                <option value="large">Large Vehicle (SUV, Truck, Van)</option>
             </select>
 
-            <button type="submit">Calculate Wrap Estimate</button>
+            <!-- Add-on checkboxes -->
+            <div class="addons">
+                <label class="addon-item"><input type="checkbox" name="addons" value="100" onchange="calculatePrice()"> Galaxy Pattern - $100</label>
+                <label class="addon-item"><input type="checkbox" name="addons" value="150" onchange="calculatePrice()"> Custom Design - $150</label>
+                <label class="addon-item"><input type="checkbox" name="addons" value="100" onchange="calculatePrice()"> Shooting Stars - $100</label>
+                <label class="addon-item"><input type="checkbox" name="addons" value="100" onchange="calculatePrice()"> Multi-Color Stars - $100</label>
+                <label class="addon-item"><input type="checkbox" name="addons" value="150" onchange="calculatePrice()"> Wrap in Suede - $150</label>
+            </div>
+
+            <!-- Star Headliner Package Selection -->
+            <label>Select Your Star Headliner Package:</label>
+            <select id="package" name="package" required onchange="calculatePrice()">
+                <option value="150">150 Stars - $100</option>
+                <option value="300">300 Stars - $150</option>
+                <option value="450">450 Stars - $200</option>
+                <option value="600">600 Stars - $250</option>
+                <option value="750">750 Stars - $325</option>
+                <option value="900">900 Stars - $400</option>
+                <option value="1100">1100 Stars - $500</option>
+                <option value="1300">1300 Stars - $600</option>
+                <option value="works">The Works (1800+ stars) - Inquiry Only</option>
+            </select>
+
+            <!-- Contact Information Fields -->
+            <label>Name:</label>
+            <input type="text" name="name" required>
+            <label>Phone Number:</label>
+            <input type="tel" name="phone" required>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <h3 style="color: white;">Total Price: <span id="totalPrice">$100</span></h3>
+            <input type="hidden" id="hiddenTotalPrice" name="total_price" value="100">
+
+            <button type="submit">Inquire Now</button>
         </form>
+    </div>
 
-        {% if wrap_price %}
-            <p>Estimated Wrap Price: ${{ wrap_price }}</p>
-        {% endif %}
-
-        <form method="POST">
-            <label>Enter Square Footage for PPF:</label>
-            <input type="number" name="ppf_sq_ft" step="0.1" required>
-
-            <button type="submit">Calculate PPF Estimate</button>
-        </form>
-
-        {% if ppf_price %}
-            <p>Estimated PPF Price: ${{ ppf_price }}</p>
-        {% endif %}
-
-        <p>Exhaust/Tuning/Dyno: $800-$3000 (estimated)
+    <div class="return-button">
+        <a href="/" class="button">Back to Home</a>
     </div>
 </body>
 </html>
-<div class="return-button">
-    <a href="/" class="button">Return to Home</a>
-</div>

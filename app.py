@@ -27,10 +27,54 @@ def calculate_membership_price(start_date, end_date, tier):
 def home():
     return render_template('index.html')
 
-# Modifications route - Coming Soon Page
-@app.route('/modifications')
+
+# Modifications page route (Just renders the page)
+@app.route('/modifications', methods=['GET'])
 def modifications():
-    return render_template('comingsoon.html')
+    return render_template('modifications.html')
+
+# Handle form submission for Star Headliner Inquiry
+@app.route('/submit_modifications', methods=['POST'])
+def submit_modifications():
+    name = request.form['name']
+    phone = request.form['phone']
+    email = request.form['email']
+    car_type = request.form['car_type']
+    package = request.form['package']
+    total_price = request.form.get("total_price", "Varies")
+
+    # Collect add-ons
+    addons = []
+    addon_labels = {
+        "galaxy": "Galaxy Pattern - $100",
+        "custom": "Custom Design - $150",
+        "shooting": "Shooting Stars - $100",
+        "multicolor": "Multi-Color Stars - $100",
+        "suede": "Wrap in Suede - $150"
+    }
+
+    for addon in addon_labels.keys():
+        if addon in request.form:
+            addons.append(addon_labels[addon])
+
+    # Construct email content
+    message_content = f"""
+    <html>
+        <body>
+            <h2>New Star Headliner Inquiry</h2>
+            <p><strong>Name:</strong> {name}</p>
+            <p><strong>Phone:</strong> {phone}</p>
+            <p><strong>Email:</strong> {email}</p>
+            <p><strong>Car Type:</strong> {car_type}</p>
+            <p><strong>Package:</strong> {package}</p>
+            <p><strong>Add-ons:</strong> {', '.join(addons) if addons else 'None'}</p>
+            <h3>Total Price: {total_price}</h3>
+        </body>
+    </html>
+    """
+
+    send_email("New Star Headliner Inquiry", message_content)
+    return redirect('/thank_you')
 
 # Membership route - Coming Soon Page
 @app.route('/membership')
